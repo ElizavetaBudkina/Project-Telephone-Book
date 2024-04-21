@@ -1,0 +1,15 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+<form action="/update_client" method="POST" class="form-contact">
+    <p><label>Id записи: </label> <input type="number" name="id" value="" requied />
+    <p><label>Номер:</label> <input type="text" name="number" value="" requied />
+    <p><label>Заметка:</label> <input type="text" name="note" value="" requied />
+<p><input type="submit" value="Обновить" />
+</form>
+{% endblock %}

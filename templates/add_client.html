@@ -1,0 +1,18 @@
+{% extends 'admin.html' %}
+ 
+{% block content %}
+{{ super() }}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+ 
+<form action="/add_client" method="POST" class="form-contact">
+    <p><label>Фамилия: </label> <input type="text" name="fam" value="" requied />
+    <p><label>Имя:</label> <input type="text" name="name" value="" requied />
+    <p><label>Отчество:</label> <input type="text" name="ot" value="" requied />
+    <p><label>Номер:</label> <input type="text" name="number" value="" requied />
+    <p><label>Заметка:</label> <input type="text" name="note" value="" requied />
+<p><input type="submit" value="Добавить" />
+</form>
+{% endblock %}
+
